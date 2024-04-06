@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import loginImg from "../../Assets/images/th.jpeg";
+
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,18 +19,23 @@ export default function LoginPage() {
         body: JSON.stringify({ email, password }),
       });
       const json = await response.json();
-      console.log(json);
-      if(json && json.message === "user logged in"){
-        router.push("/home");
-      }else{
+      console.log("login message", json.message);
+      if (json?.message === "user logged in") {
+        console.log("correct", json.message);
+        e.preventDefault();
+        router.push("/products");
+      } else {
+        console.log("incorrect", json.message);
         setErrMessage("Invalid Credentials");
       }
-    } catch (error) {}
-    if (email === "asc@gmail.com" && password === "pwd") {
-      router.push("/home");
-      setErrMessage("");
-    } else {
-      setErrMessage("Invalid Credentials");
+    } catch (error) {
+      if (email === "asc@gmail.com" && password === "pwd") {
+        router.push("/products");
+        
+      } else {
+        setErrMessage("Invalid Credentials");
+      }
+
     }
   }
 
@@ -109,3 +115,4 @@ export default function LoginPage() {
     </main>
   );
 }
+

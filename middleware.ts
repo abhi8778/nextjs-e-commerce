@@ -12,10 +12,10 @@ export async function middleware(request: NextRequest) {
       throw new Error("invalid user.");
     }
   } catch (error) {
-    return NextResponse.redirect("http://localhost:3000/error");
+    return NextResponse.redirect("http://localhost:3000/login");
   }
 }
 
 export const config = {
-  matcher: ["/asad"]
+  matcher: ["/", "/products" , "/orders", "/checkout", "/cart"]
 };
