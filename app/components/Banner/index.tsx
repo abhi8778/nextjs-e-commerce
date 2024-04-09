@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import image from '../../../lib/assets/images/banner-offer.jpg'
 
 const Banner = () => {
+    
   return (
-    <div className="bg-indigo-600">
+    <div className="bg-blue-600">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
             <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
                 <div>
@@ -16,7 +18,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div className="mt-8 lg:mt-0">
-                    <Image className="rounded-lg shadow-lg w-full" width={500} height={500} src="/banner-image-url.jpg" alt="Seasonal Sale Banner" />
+                        <Image className="rounded-lg shadow-lg w-full" width={500} height={500} src={image} alt="Seasonal Sale Banner" />
                 </div>
             </div>
         </div>

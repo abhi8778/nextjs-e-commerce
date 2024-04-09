@@ -23,18 +23,15 @@ export default function LoginPage() {
       if (json?.message === "user logged in") {
         console.log("correct", json.message);
         e.preventDefault();
-        router.push("/products");
+        router.push("/home");
       } else {
         console.log("incorrect", json.message);
         setErrMessage("Invalid Credentials");
       }
     } catch (error) {
-      if (email === "asc@gmail.com" && password === "pwd") {
-        router.push("/products");
-        
-      } else {
+      
         setErrMessage("Invalid Credentials");
-      }
+      
 
     }
   }
